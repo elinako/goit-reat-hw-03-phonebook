@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/goit-reat-hw-03-phonebook/static/js/main.eb4f4cb7.chunk.js",
-    "main.js.map": "/goit-reat-hw-03-phonebook/static/js/main.eb4f4cb7.chunk.js.map",
+    "main.js": "/goit-reat-hw-03-phonebook/static/js/main.fc244103.chunk.js",
+    "main.js.map": "/goit-reat-hw-03-phonebook/static/js/main.fc244103.chunk.js.map",
     "runtime-main.js": "/goit-reat-hw-03-phonebook/static/js/runtime-main.9dc93368.js",
     "runtime-main.js.map": "/goit-reat-hw-03-phonebook/static/js/runtime-main.9dc93368.js.map",
     "static/js/2.3c468f91.chunk.js": "/goit-reat-hw-03-phonebook/static/js/2.3c468f91.chunk.js",
@@ -12,6 +12,6 @@
   "entrypoints": [
     "static/js/runtime-main.9dc93368.js",
     "static/js/2.3c468f91.chunk.js",
-    "static/js/main.eb4f4cb7.chunk.js"
+    "static/js/main.fc244103.chunk.js"
   ]
 }
