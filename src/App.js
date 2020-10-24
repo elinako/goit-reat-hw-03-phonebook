@@ -72,7 +72,7 @@ export default class App extends Component {
     return (
       <Container>
         <Form onSubmit={this.addContact} />
-     {contacts.length >=2 &&    <SearchInput value={filter} onChangeSearchInput={this.filterContacts} />}
+     {contacts.length >1 &&    <SearchInput value={filter} onChangeSearchInput={this.filterContacts} />}
      {contacts.length >0 &&   <ContactList contacts={filteredContacts}  onDeleteContact={this.deleteContact}/>}
       </Container>
       
