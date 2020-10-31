@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import Form from "./components/Form";
 import ContactList from "./components/ContactList";
 import SearchInput from "./components/SearchInput";
-import styled, { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 uuidv4();
 
 const Container = styled.div`
@@ -13,12 +13,7 @@ const Container = styled.div`
 
 export default class App extends Component {
   state = {
-    contacts: [
-      { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
-      { id: "id-2", name: "Hermione Kline", number: "443-89-12" },
-      { id: "id-3", name: "Eden Clements", number: "645-17-79" },
-      { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
-    ],
+    contacts: [],
     filter: "",
   };
 
@@ -81,12 +76,17 @@ export default class App extends Component {
 
 
   componentDidMount() {
-  this.setState({contacts:Object.values(localStorage).map(value => JSON.parse(value))});
+    if (localStorage.length !==0) {
+      const contactsFromStorage = localStorage.getItem('contacts');
+      this.setState({contacts: JSON.parse(contactsFromStorage)});
+    }
   }
  
 
-  componentDidUpdate() {
-    this.state.contacts.map(contact=> localStorage.setItem(contact.id, JSON.stringify(contact)));
+  componentDidUpdate(prevState) {
+   if(prevState !== this.state){
+     localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+   } 
   } 
 }
 
