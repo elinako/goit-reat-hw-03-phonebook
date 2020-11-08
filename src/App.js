@@ -17,8 +17,6 @@ export default class App extends Component {
     filter: "",
   };
 
-
-  
   addContact = ({ name, number }) => {
     const contact = {
       id: uuidv4(),
@@ -46,8 +44,8 @@ export default class App extends Component {
   };
 
   getFilteredContacts = () => {
-    const { contacts, filter } = this.state;
-    return contacts.filter((contact) =>
+    const { filter } = this.state;
+    return this.state.contacts.filter((contact) =>
       contact.name.toLowerCase().includes(filter.toLowerCase())
     );
   };
@@ -61,32 +59,38 @@ export default class App extends Component {
   };
 
   render() {
-    const { filter,contacts } = this.state;
+    const { filter, contacts } = this.state;
     const filteredContacts = this.getFilteredContacts();
 
     return (
       <Container>
         <Form onSubmit={this.addContact} />
-     {contacts.length >1 &&    <SearchInput value={filter} onChangeSearchInput={this.filterContacts} />}
-     {contacts.length >0 &&   <ContactList contacts={filteredContacts}  onDeleteContact={this.deleteContact}/>}
+        {contacts.length > 1 && (
+          <SearchInput
+            value={filter}
+            onChangeSearchInput={this.filterContacts}
+          />
+        )}
+        {contacts.length > 0 && (
+          <ContactList
+            contacts={filteredContacts}
+            onDeleteContact={this.deleteContact}
+          />
+        )}
       </Container>
-      
     );
   }
 
-
   componentDidMount() {
-    if (localStorage.length !==0) {
-      const contactsFromStorage = localStorage.getItem('contacts');
-      this.setState({contacts: JSON.parse(contactsFromStorage)});
+    if (localStorage.getItem("contacts") !== null) {
+      const contactsFromStorage = localStorage.getItem("contacts");
+      this.setState({ contacts: JSON.parse(contactsFromStorage) });
     }
   }
- 
 
   componentDidUpdate(prevState) {
-   if(prevState !== this.state){
-     localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
-   } 
-  } 
+    if (prevState !== this.state) {
+      localStorage.setItem("contacts", JSON.stringify(this.state.contacts));
+    }
+  }
 }
-

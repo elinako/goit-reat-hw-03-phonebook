@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import PropTypes, { string } from "prop-types";
+import PropTypes from "prop-types";
 
 const FormContact = styled.form`
   width: 400px;
@@ -73,9 +73,6 @@ export default class Form extends Component {
       </>
     );
   }
-
- 
-
 }
 
 Form.propTypes = {
